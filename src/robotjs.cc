@@ -193,6 +193,30 @@ NAN_METHOD(mouseClick)
 	info.GetReturnValue().Set(Nan::New(1));
 }
 
+NAN_METHOD(clickAndDrag)
+{
+    if (info.Length() != 4)
+	{
+		return Nan::ThrowError("Invalid number of arguments.");
+	}
+
+	size_t x0 = Nan::To<int32_t>(info[0]).FromJust();
+    size_t y0 = Nan::To<int32_t>(info[1]).FromJust();
+
+	MMSignedPoint point0;
+	point0 = MMSignedPointMake(x0, y0);
+	moveMouse(point0);
+    toggleMouse(true, LEFT_BUTTON);
+    moveMouse(MMSignedPointMake(x0 + 1, y0 + 1));
+    size_t x1 = Nan::To<int32_t>(info[2]).FromJust();
+    size_t y1 = Nan::To<int32_t>(info[3]).FromJust();
+    MMSignedPoint point1;
+    point1 = MMSignedPointMake(x1, y1);
+    dragMouse(point1, LEFT_BUTTON);
+    toggleMouse(false, LEFT_BUTTON);
+    info.GetReturnValue().Set(Nan::New(1));
+}
+
 NAN_METHOD(mouseToggle)
 {
 	MMMouseButton button = LEFT_BUTTON;
@@ -872,6 +896,9 @@ NAN_MODULE_INIT(InitAll)
 
 	Nan::Set(target, Nan::New("updateScreenMetrics").ToLocalChecked(),
 		Nan::GetFunction(Nan::New<FunctionTemplate>(updateScreenMetrics)).ToLocalChecked());
+
+	Nan::Set(target, Nan::New("clickAndDrag").ToLocalChecked(),
+    	Nan::GetFunction(Nan::New<FunctionTemplate>(clickAndDrag)).ToLocalChecked());
 
 	Nan::Set(target, Nan::New("moveMouse").ToLocalChecked(),
 		Nan::GetFunction(Nan::New<FunctionTemplate>(moveMouse)).ToLocalChecked());

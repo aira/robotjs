@@ -105,7 +105,7 @@ void win32KeyEvent(int key, MMKeyFlags flags)
 
 	INPUT keyboardInput;
 	keyboardInput.type = INPUT_KEYBOARD;
-	keyboardInput.ki.wVk = 0;
+	keyboardInput.ki.wVk = 0; // nick: was keyboardInput.ki.wVk = key;
 	keyboardInput.ki.wScan = scan;
 	keyboardInput.ki.dwFlags = flags;
 	keyboardInput.ki.time = 0;

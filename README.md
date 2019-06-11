@@ -158,6 +158,13 @@ The library doesn't have explicit multi-monitor support, so anything that works 
 
 For any other questions please [submit an issue](https://github.com/octalmage/robotjs/issues/new).
 
+## Install Mac
+
+
+xcode-select --install
+npm config set python /usr/bin/python
+
+
 ## Story
 
 I'm a huge fan of [AutoHotkey](https://www.autohotkey.com/), and I've used it for a very long time. AutoHotkey is great for automation and it can do a bunch of things that are very difficult in other languages. For example, it's [imagesearch](https://www.autohotkey.com/docs/commands/ImageSearch.htm) and [pixel](https://www.autohotkey.com/docs/commands/PixelGetColor.htm) related functions are hard to reproduce on Mac, especially in scripting languages. These functions are great for automating apps that can't be automated like [Netflix](http://blueshirtdesign.com/apps/autoflix/). This has never been a big deal since I've always used Windows at work, but for the past few years I've been using Mac exclusively. 
