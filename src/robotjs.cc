@@ -197,6 +197,7 @@ NAN_METHOD(clickAndDrag)
     point1 = MMPointMake(x1, y1);
     dragMouse(point1, LEFT_BUTTON);
     toggleMouse(false, LEFT_BUTTON);
+    info.GetReturnValue().Set(Nan::New(1));
 }
 
 NAN_METHOD(mouseToggle)
