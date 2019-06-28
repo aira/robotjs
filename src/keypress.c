@@ -197,7 +197,7 @@ void toggleUnicodeKey(unsigned long ch, const bool down)
 	 * CGEventKeyboardSetUnicodeString(), which allows us to not have to
 	 * convert characters to a keycode, but does not support adding modifier
 	 * flags. It is therefore only used in typeString() and typeStringDelayed()
-	 * -- if you need modifier keys, use the above functions instead. */
+	 * -- if you need modifier keys, use the above functions instead.
 	CGEventRef keyEvent = CGEventCreateKeyboardEvent(NULL, 0, down);
 	if (keyEvent == NULL) {
 		fputs("Could not create keyboard event.\n", stderr);
@@ -217,7 +217,7 @@ void toggleUnicodeKey(unsigned long ch, const bool down)
 	}
 
 	CGEventPost(kCGSessionEventTap, keyEvent);
-	CFRelease(keyEvent);
+	CFRelease(keyEvent); */
 }
 
 void toggleUniKey(char c, const bool down)
